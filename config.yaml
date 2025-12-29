@@ -11,14 +11,14 @@ cache:
 
 logging:
   level: "debug"  # debug, info, warn, error
-  path: "C:/Users/User/sources/nuclei-mcp/logs/nuclei_mcp.log"
+  path: "D:/Meet/Music/Nuclie/nuclei-mcp/logs/nuclei_mcp.log"
   max_size_mb: 10
   max_backups: 5
   max_age_days: 30
   compress: true
 
 nuclei:
-  templates_directory: "C:\\Users\\User\\sources\\nuclei-mcp\\nuclei-templates"
+  templates_directory: "D:\\Meet\\Music\\Nuclie\\nuclei-mcp\\nuclei-templates"
   timeout: 30s
   rate_limit: 150
   bulk_size: 25

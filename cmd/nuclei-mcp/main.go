@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -18,6 +19,12 @@ import (
 	mcp "github.com/mark3labs/mcp-go/server"
 	"github.com/sirupsen/logrus"
 )
+
+var configPath string
+
+func init() {
+	flag.StringVar(&configPath, "config", "", "Path to configuration file")
+}
 
 func setupSignalHandling() chan os.Signal {
 	sigs := make(chan os.Signal, 1)
@@ -49,9 +56,10 @@ func setupLogging(cfg config.LoggingConfig) (*logging.ConsoleLogger, error) {
 }
 
 func main() {
+	flag.Parse()
 
 	// load configs here we are using viper
-	cfg, err := config.LoadConfig("")
+	cfg, err := config.LoadConfig(configPath)
 	if err != nil {
 		log.Fatalf("Failed to load configuration: %v", err)
 	}
